@@ -1,0 +1,22 @@
+package Abstraction;
+
+abstract class M1 {
+	
+	public void m1 ;
+	
+}
+
+public class AB1 {
+
+	public static void main(String[] args) {
+	
+		
+
+		
+		
+		
+		
+
+	}
+
+}

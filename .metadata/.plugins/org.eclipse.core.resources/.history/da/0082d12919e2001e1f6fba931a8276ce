@@ -1,0 +1,23 @@
+package selenium.tests;
+
+import selenium.configuration.BaseConfig;
+
+public class TestRunner extends BaseConfig {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		//TestRunner tr = new TestRunner();
+		config();
+		
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		Thread.sleep(2000);
+		
+		//Static Drop down
+		
+		baseMethod();
+		
+		driver.close();
+	}
+
+}

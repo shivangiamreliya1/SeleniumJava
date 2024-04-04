@@ -1,0 +1,32 @@
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class P_Loops2 {
+
+	public static void main(String[] args) {
+	
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Download\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+	
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");		
+		driver.quit();
+		
+		//div[@class = 'product']/h4
+		
+		List 
+
+		
+		
+	}
+
+}

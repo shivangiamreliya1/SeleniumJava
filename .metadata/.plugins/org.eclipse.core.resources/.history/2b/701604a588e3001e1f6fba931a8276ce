@@ -1,0 +1,158 @@
+package selenium.configuration;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseConfig {
+
+	public static WebDriver driver;
+
+	public static void config() {
+
+		WebDriverManager.chromedriver().setup();
+		// not to update the chrome driver executable file .exe
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications", "start-maximized", "incognito", "--disable-geolocation");
+
+		driver = new ChromeDriver(options);
+
+	}
+
+	public static void baseMethod(WebElement staticDropdown, String visibleText, String value, String flag) {
+
+		Select select = new Select(staticDropdown);
+		if (flag.contains("text")) {
+
+			select.selectByVisibleText(visibleText);
+
+		} else {
+			select.selectByValue(value);
+		}
+
+		/*
+		 * driver.findElement(By.cssSelector("select[id*='DropDownListCurrency']")).
+		 * click(); driver.findElement(By.xpath("//*[@value='AED']")).click();
+		 */
+	}
+
+	public static void baseMethod(WebElement s, int i) {
+
+		Select select = new Select(s);
+		select.selectByIndex(i);
+	}
+
+	// assignment :
+
+	public static void addPassengerCount(WebElement passengers, int adultCount, int childrenCount, int infantCount)
+			throws InterruptedException {
+
+		passengers.click();
+		WebElement adult = driver.findElement(By.cssSelector("div[data-testid= 'Adult-testID-plus-one-cta']"));
+		WebElement child = driver.findElement(By.cssSelector("div[data-testid= 'Children-testID-plus-one-cta']"));
+		WebElement infant = driver.findElement(By.cssSelector("div[data-testid= 'Infant-testID-plus-one-cta']"));
+
+		int i = 1;
+		int j = 1;
+		int k = 1;
+
+		if (adultCount <= 9) {
+
+			while (i <= adultCount) {
+				adult.click();
+				i++;
+			}
+
+		} else {
+			System.out.println("System out");
+		}
+
+		Thread.sleep(3000);
+		if (adultCount != 9) {
+			while (j <= childrenCount) {
+				child.click();
+				j++;
+
+			}
+		} else {
+			System.out.println("System out 2");
+		}
+
+		Thread.sleep(3000);
+		while (k <= infantCount) {
+			infant.click();
+			k++;
+		}
+	}
+
+	public static void autoSujestiveDropDown(WebElement country, String countryname) throws InterruptedException {
+
+		country.sendKeys(countryname);
+		Thread.sleep(5000);
+
+		List<WebElement> selectCountry = driver.findElements(By.xpath("//*[@id = 'ui-id-1']/li/a"));
+		System.out.println(selectCountry.size());
+
+//		for (int i = 0; i < selectCountry.size(); i++) {
+//
+//			System.out.println(selectCountry.get(i).getText());
+//
+//			if (selectCountry.get(i).getText().equalsIgnoreCase(countryname)) {
+//				selectCountry.get(i).click();
+//			}
+//		}
+
+		for (WebElement i : selectCountry) {
+
+			System.out.println(i.getText());
+			if (i.getText().equalsIgnoreCase(countryname)) {
+
+				i.click();
+			}
+
+		}
+
+	}
+
+	public static void selectFromCity(WebElement fromArrow ,  String fromCity, String toCity) {
+		
+		fromArrow.click();
+		
+		List<WebElement> fromCityList = driver.findElements(By.cssSelector("table[id = 'citydropdown'] div[id= 'dropdownGroup1']>div li, table[id = 'citydropdown'] div[id= 'dropdownGroup2']>div li"));
+		
+		System.out.println(fromCityList.size());
+		
+		for (WebElement stringCityList : fromCityList) {
+			
+			System.out.println(stringCityList.getText());
+			
+//			if (stringCityList.getText().equalsIgnoreCase(fromCity)) {
+//				
+//				stringCityList.click();
+//			}
+			
+			if (stringCityList.getText().contains(fromCity)) {
+				
+				stringCityList.click();
+			}
+			
+			
+			
+		}
+		
+
+	}}
+	for (WebElement stringtoCityList : toCity) {
+		
+		System.out.println(stringtoCityList.getText());
+		
+
+}

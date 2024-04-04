@@ -1,0 +1,26 @@
+package OOps;
+
+abstract public class AbstractFirstP {
+
+	int a;
+	String s;
+	int b;
+	
+	public AbstractFirstP() {
+		System.out.println("This is a default constructor");
+	}
+	
+	public AbstractFirstP(int a, String s, int b) {
+		System.out.println("This is a default constructor");
+		
+	}
+	
+	abstract void Ab1 ();
+	
+	public void Ab2 () {
+		
+		System.out.println("AbstractFirstP");
+	}
+	
+	
+}

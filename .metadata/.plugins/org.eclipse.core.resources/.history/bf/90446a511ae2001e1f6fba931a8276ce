@@ -1,0 +1,28 @@
+package selenium.tests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import selenium.configuration.BaseConfig;
+
+public class TestRunner extends BaseConfig {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		//TestRunner tr = new TestRunner();
+		config();		
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");		
+		Thread.sleep(2000);
+		
+		//Static Drop down		
+		WebElement s = driver.findElement(By.cssSelector("select[id*='DropDownListCurrency']"));
+		baseMethod(s, "AED");
+		
+		
+		
+		
+		
+		driver.close();
+	}
+
+}

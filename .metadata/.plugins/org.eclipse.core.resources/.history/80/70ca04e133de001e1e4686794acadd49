@@ -1,0 +1,15 @@
+package ArrayListProgram;
+
+import java.util.HashMap;
+
+public class HashMapProgram1 {
+
+	public static void main(String[] args) {
+		
+		HashMap<String, Integer> hp = new HashMap <String, Integer>();
+		hp.put(null, null)
+		
+
+	}
+
+}

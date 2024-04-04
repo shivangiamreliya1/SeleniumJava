@@ -1,0 +1,14 @@
+package selenium.configuration;
+
+
+
+public class BaseConfig {
+	
+	public void config () {
+		
+		
+		
+	}
+	
+
+}

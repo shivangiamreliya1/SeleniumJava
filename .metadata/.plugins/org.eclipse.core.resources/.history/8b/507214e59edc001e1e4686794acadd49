@@ -1,0 +1,48 @@
+package OOps;
+
+public class OopsProgram extends AbstractFirstP implements InterfaceFirstProgram {
+	int aa;
+	String ss;
+	double bb;
+
+	public OopsProgram() {
+
+		System.out.println("This is a child  contructor");
+	}
+
+	public OopsProgram(int aa, String ss, double bb) {
+
+		System.out.println("This is a child contructor");
+		this.aa = aa;
+		this.bb = bb;
+		this.ss = ss;
+
+	}
+
+	public static void main(String[] args) {
+
+		OopsProgram op = new OopsProgram();
+		OopsProgram();
+		
+	}
+
+	@Override
+	public void daal() {
+		
+		
+
+	}
+
+	@Override
+	public void daa3() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	void Ab1() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

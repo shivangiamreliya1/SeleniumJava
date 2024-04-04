@@ -1,0 +1,242 @@
+package selenium.configuration;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseConfig {
+
+	public static WebDriver driver;
+
+	public static void config() {
+		WebDriverManager.chromedriver().setup();
+		// not to update the chrome driver executable file .exe
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications", "start-maximized", "incognito", "--disable-geolocation");
+
+		driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		// imlicits waits only be used for single element not for multiple elements
+
+	}
+
+	public static void baseMethod(WebElement staticDropdown, String visibleText, String value, String flag) {
+
+		Select select = new Select(staticDropdown);
+		if (flag.contains("text")) {
+
+			select.selectByVisibleText(visibleText);
+
+		} else {
+			select.selectByValue(value);
+		}
+
+		/*
+		 * driver.findElement(By.cssSelector("select[id*='DropDownListCurrency']")).
+		 * click(); driver.findElement(By.xpath("//*[@value='AED']")).click();
+		 */
+	}
+
+	public static void baseMethod(WebElement s, int i) {
+
+		Select select = new Select(s);
+		select.selectByIndex(i);
+	}
+
+	// assignment :
+
+	public static void addPassengerCount(WebElement passengers, int adultCount, int childrenCount, int infantCount)
+			throws InterruptedException {
+
+		passengers.click();
+		WebElement adult = driver.findElement(By.cssSelector("div[data-testid= 'Adult-testID-plus-one-cta']"));
+		WebElement child = driver.findElement(By.cssSelector("div[data-testid= 'Children-testID-plus-one-cta']"));
+		WebElement infant = driver.findElement(By.cssSelector("div[data-testid= 'Infant-testID-plus-one-cta']"));
+
+		int i = 1;
+		int j = 1;
+		int k = 1;
+
+		if (adultCount <= 9) {
+
+			while (i <= adultCount) {
+				adult.click();
+				i++;
+			}
+
+		} else {
+			System.out.println("System out");
+		}
+
+		Thread.sleep(3000);
+		if (adultCount != 9) {
+			while (j <= childrenCount) {
+				child.click();
+				j++;
+
+			}
+		} else {
+			System.out.println("System out 2");
+		}
+
+		Thread.sleep(3000);
+		while (k <= infantCount) {
+			infant.click();
+			k++;
+		}
+	}
+
+	public static void autoSujestiveDropDown(WebElement country, String countryname) throws InterruptedException {
+
+		country.sendKeys(countryname);
+		Thread.sleep(5000);
+
+		List<WebElement> selectCountry = driver.findElements(By.xpath("//*[@id = 'ui-id-1']/li/a"));
+		// System.out.println(selectCountry.size());
+
+//		for (int i = 0; i < selectCountry.size(); i++) {
+//
+//			System.out.println(selectCountry.get(i).getText());
+//
+//			if (selectCountry.get(i).getText().equalsIgnoreCase(countryname)) {
+//				selectCountry.get(i).click();
+//			}
+//		}
+
+		for (WebElement i : selectCountry) {
+
+			// System.out.println(i.getText());
+			if (i.getText().equalsIgnoreCase(countryname)) {
+
+				i.click();
+
+			}
+
+		}
+
+	}
+
+	public static void selectFrom_ToCity(WebElement fromArrow, String fromCity, String toCity) {
+
+		fromArrow.click();
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
+				"div[id = 'glsctl00_mainContent_ddl_originStation1_CTNR']")));
+
+		List<WebElement> fromCityList = driver.findElements(By.cssSelector(
+				"table[id = 'citydropdown'] div[id= 'dropdownGroup1']>div li, table[id = 'citydropdown'] div[id= 'dropdownGroup2']>div li"));
+
+		// System.out.println(fromCityList.size());
+
+		for (WebElement stringCityList : fromCityList) {
+
+			// System.out.println(stringCityList.getText());
+
+//			if (stringCityList.getText().equalsIgnoreCase(fromCity)) {
+//				
+//				stringCityList.click();
+//			}
+
+			if (stringCityList.getText().contains(fromCity)) {
+
+				stringCityList.click();
+				break;
+			}
+
+		}
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.cssSelector("div[id = 'glsctl00_mainContent_ddl_destinationStation1_CTNR']")));
+
+		List<WebElement> destinationStationTo_CityList = driver.findElements(
+				By.cssSelector("div[id = 'dropdownGroup1'] div>ul>li>a, div[id = 'dropdownGroup2'] div>ul>li>a"));
+
+		for (WebElement destinationStation : destinationStationTo_CityList) {
+
+			/// System.out.println(destinationStation.getText());
+
+			if (destinationStation.getText().contains(toCity)) {
+
+				destinationStation.click();
+				break;
+			}
+		}
+	}
+
+	public static void departDatePicker(String date) {
+
+		List<WebElement> march = driver.findElements(By.cssSelector(
+				"div[class='ui-datepicker-group ui-datepicker-group-first']>table>tbody td[data-handler='selectDay']>a"));
+
+		List<WebElement> april = driver.findElements(By.cssSelector(
+				"div[class='ui-datepicker-group ui-datepicker-group-last']>table>tbody td[data-handler='selectDay']>a"));
+
+		String[] ddate = date.split(" ");
+		System.out.println(ddate[0]);
+		String day = ddate[0];
+
+		if (date.contains("April")) {
+			for (WebElement aprilDay : april) {
+				if (aprilDay.getText().equals(day)) {
+					aprilDay.click();
+					break;
+				}
+			}
+		} else {
+			for (WebElement marchDay : march) {
+				if (marchDay.getText().equals(day)) {
+					marchDay.click();
+					break;
+				}
+			}
+		}
+	}
+
+	public static void returnDatePicker(String date) {
+
+		driver.findElement(By.xpath("(//input[@id='ctl00_mainContent_view_date2'])[1]")).click();
+
+		List<WebElement> april2024list = driver
+				.findElements(By.cssSelector("div[class='ui-datepicker-group ui-datepicker-group-first'] table td>a"));
+
+		List<WebElement> may2024list = driver
+				.findElements(By.cssSelector("div[class='ui-datepicker-group ui-datepicker-group-last'] table td>a"));
+
+		String day = date.split(" ")[0];
+
+		if (date.contains("April")) {
+			for (WebElement april2024 : april2024list) {
+				if (april2024.getText().equals(day)) {
+					april2024.click();
+					break;
+				}
+
+			}
+
+		} else {
+
+			for (WebElement may2024 : may2024list) {
+
+				if (may2024.getText().equals(day)) {
+					may2024.click();
+					break;
+				}
+			}
+		}
+
+	}
+
+}

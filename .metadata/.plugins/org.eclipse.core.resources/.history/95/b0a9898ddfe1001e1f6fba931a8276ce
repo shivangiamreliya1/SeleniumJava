@@ -1,0 +1,17 @@
+package selenium.tests;
+
+import selenium.configuration.BaseConfig;
+
+public class TestRunner extends BaseConfig {
+
+	public static void main(String[] args) {
+
+		TestRunner tr = new TestRunner();
+		tr.config();
+		
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		Thread.sleep(1000);
+	}
+
+}

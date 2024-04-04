@@ -1,0 +1,72 @@
+package Abstraction;
+
+abstract class M1 {
+
+	int i = 1;
+	int j = 2;
+	String c = "Ashu";
+
+	M1() {
+
+		System.out.println("This is a default contructor of parent class");
+
+	}
+
+	M1(int a, int b, String c) {
+
+		System.out.println("This is a parameterised contructor of parent class " + a +b +c);
+		this.i = a; // only used whens
+		this.j = b;
+
+	}
+
+	public void m1() {
+
+		System.out.println("Hello1");
+	}
+
+	public void m2(int i, int j) {
+
+		System.out.println(i + j);
+	}
+
+	public abstract void m3();
+
+}
+
+class AB1 extends M1 {
+
+	public AB1(int as, int hu, String name) {
+		//super(2, 5, "SupperCon");
+		super();
+		System.out.println(as + hu + name);
+			
+	}
+	
+
+	public AB1() {
+		System.out.println("AB1-def con");
+	}
+
+	public static void main(String[] args) {
+
+		AB1 ab = new AB1();
+		ab.m1();
+
+		ab.m2(1, 2);
+
+		AB1 AB = new AB1(4, 6, "TestSuperKeyword");
+		
+
+		// M1 m = new M1(); can not create an object for abstract class object
+
+	}
+
+	@Override
+	public void m3() {
+
+		System.out.println("Hello AB");
+
+	}
+
+}

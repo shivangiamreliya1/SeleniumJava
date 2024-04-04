@@ -1,0 +1,42 @@
+package selenium.configuration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseConfig {
+
+	public static WebDriver driver;
+
+	public static void config() {
+
+		WebDriverManager.chromedriver().setup();
+		// not to update the chrome driver executable file .exe
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications", "start-maximized", "incognito");
+
+		driver = new ChromeDriver(options);
+		
+	}
+	
+	public static void baseMethod() {
+		
+		
+		Select select = new Select(s);
+		//select.selectByValue("AED");
+		//select.selectByIndex(3);
+		select.selectByVisibleText("USD");
+		
+		/*
+		 * driver.findElement(By.cssSelector("select[id*='DropDownListCurrency']")).
+		 * click(); driver.findElement(By.xpath("//*[@value='AED']")).click();
+		 */
+	}
+
+}

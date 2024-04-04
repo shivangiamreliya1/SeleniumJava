@@ -1,0 +1,25 @@
+package selenium.configuration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseConfig {
+	
+	public void config () {
+		
+		WebDriverManager.chromedriver().setup();
+		// not to update the chrome driver executable file .exe
+		
+		
+		
+		WebDriver driver = new ChromeDriver();
+		
+		
+		
+		
+	}
+	
+
+}

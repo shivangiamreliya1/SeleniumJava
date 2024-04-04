@@ -1,0 +1,23 @@
+package ArrayListProgram;
+
+import java.util.HashMap;
+
+public class HashMapProgram1 {
+
+	public static void main(String[] args) {
+		
+		HashMap<String, Integer> hp = new HashMap <String, Integer>();
+		hp.put("first1", 1);
+		hp.put("first2", 2);
+		hp.put("first3", 3);
+		hp.put("first4", 4);		
+		hp.put("first4", 7);
+		
+		//System.out.println(hp.get("first1"));
+		System.out.println(hp.remove("first3"));
+		System.out.println(hp.remove(args, hp));
+		
+
+	}
+
+}

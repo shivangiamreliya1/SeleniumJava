@@ -1,0 +1,7 @@
+
+public class P_Loops {
+	
+	System.setProperty("webdriver.chrome.driver", "C:\\Download\\chromedriver-win64\\chromedriver-win64");   
+	WebDriver driver = new ChromeDriver(); 
+
+}

@@ -1,0 +1,33 @@
+package OOps;
+
+public class OopsProgram extends AbstractFirstP implements InterfaceFirstProgram {
+
+	public static void main(String[] args) {
+		
+		
+		
+
+		
+		
+		
+	}
+
+	@Override
+	public void daal() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void daa3() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void Ab1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

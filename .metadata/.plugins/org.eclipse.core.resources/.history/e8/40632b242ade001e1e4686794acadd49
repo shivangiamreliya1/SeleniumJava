@@ -1,0 +1,19 @@
+package ArrayListProgram;
+
+import java.util.HashSet;
+
+
+public class HashSetProgram1 {
+
+	public static void main(String[] args) {
+		
+		HashSet<String> hs = new HashSet<String>();
+		hs.add("Ashu");
+		hs.add("is");
+		hs.add("good");
+		hs.add("human");
+		hs
+
+	}
+
+}

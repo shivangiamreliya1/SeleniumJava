@@ -1,0 +1,22 @@
+package selenium.tests;
+
+import org.openqa.selenium.By;
+
+import selenium.configuration.BaseConfig;
+
+public class Assignments extends BaseConfig {
+
+	public static void main(String[] args) throws InterruptedException {
+		config();		
+		driver.get("https://www.spicejet.com/");		
+		Thread.sleep(2000);
+		
+		
+		driver.findElement(By.cssSelector("div[data-testid= 'home-page-travellers']")).click();
+		 
+		if ()
+		driver.findElement(By.cssSelector("div[data-testid= 'Adult-testID-plus-one-cta']")).click();
+
+	}
+
+}

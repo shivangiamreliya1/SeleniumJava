@@ -1,0 +1,9 @@
+package AccessModifier_Pakage1;
+
+public class Class2_Public {
+	
+	public void m1 (){
+		System.out.println("M1_Public_Clas2");
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class P_Loops {
+ 
+}
+	{     
+
+		       
+		System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");          
+		WebDriver driver = new ChromeDriver(); 
+}

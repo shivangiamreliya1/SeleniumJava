@@ -1,0 +1,16 @@
+package selenium.configuration;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseConfig {
+	
+	public void config () {
+		
+		WebDriverManager.chromedriver().setup();
+		
+		
+		
+	}
+	
+
+}

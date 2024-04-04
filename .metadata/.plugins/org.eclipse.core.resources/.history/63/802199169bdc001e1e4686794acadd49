@@ -1,0 +1,8 @@
+package OOps;
+
+abstract public class AbstractFirstP {
+
+	abstract void Ab1 ();
+	
+	
+}

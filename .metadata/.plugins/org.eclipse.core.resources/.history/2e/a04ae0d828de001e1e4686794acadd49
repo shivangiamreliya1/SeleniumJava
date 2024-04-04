@@ -1,0 +1,30 @@
+package ArrayListProgram;
+
+import java.util.ArrayList;
+
+public class Prog1 {
+
+
+
+	public static void main(String[] args) {
+		int i = 0 ;
+		
+		ArrayList<String> arr1 = new ArrayList<String>();
+		arr1.add("I");
+		arr1.add("love");
+		arr1.add("Food");
+		arr1.add("sleeping");
+		System.out.println(arr1);
+		arr1.set(0, "me");
+		System.out.println(arr1);
+		
+		System.out.println(arr1.get(2));
+		
+		while (i < arr1.size())
+		{
+			i++ ;
+			System.out.println(arr1.get(i));
+		}		
+
+	}
+}

@@ -1,0 +1,10 @@
+package AccessModifier_Pakage2;
+
+public class usingPublicFromDifClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

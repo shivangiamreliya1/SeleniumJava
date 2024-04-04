@@ -1,0 +1,52 @@
+package OOps;
+
+public class OopsProgram extends AbstractFirstP implements InterfaceFirstProgram {
+	int aa;
+	String ss;
+	double bb;
+
+	public OopsProgram() {
+		// good example of constructor overloading 
+		//super();
+		super(10, "abc1", 2);
+		System.out.println("This is a child 1 contructor");
+
+	}
+
+	public OopsProgram(int aa, String ss, double bb) {
+        
+		super(aa, ss, bb);
+		System.out.println("This is a child 2 contructor");
+		this.aa = aa;
+		this.bb = bb;
+		this.ss = ss;
+
+	}
+
+	public static void main(String[] args) {
+
+		OopsProgram op = new OopsProgram();
+		op.finalTest();
+		InterfaceFirstProgram.rice();
+		OopsProgram op2 = new OopsProgram(10, "abc", 22.5);
+		
+	}
+
+	@Override
+	public void daal() {
+
+	}
+
+	@Override
+	public void daa3() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	void Ab1() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

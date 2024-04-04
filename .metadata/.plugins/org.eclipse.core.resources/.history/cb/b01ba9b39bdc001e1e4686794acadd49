@@ -1,0 +1,17 @@
+package OOps;
+
+abstract public class AbstractFirstP {
+
+	public AbstractFirstP() {
+		System.out.println();
+	}
+	
+	abstract void Ab1 ();
+	
+	public void Ab2 () {
+		
+		System.out.println("AbstractFirstP");
+	}
+	
+	
+}

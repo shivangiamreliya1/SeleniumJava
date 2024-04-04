@@ -1,0 +1,33 @@
+package Abstraction;
+
+abstract class M1 {
+
+	int a = 1;
+	int b = 2;
+
+	public void m1() {
+
+		System.out.println("Hello1");
+	}
+
+	public void m2(int i, int j) {
+
+		System.out.println("Hello2");
+	}
+	
+	public abstract void m3();
+
+}
+
+class AB1 extends M1 {
+
+	public static void main(String[] args) {
+
+		AB1 ab = new AB1();
+		ab.m1();
+
+		ab.m2(1, 2);
+
+	}
+
+}
